@@ -1,13 +1,13 @@
-import "./mainStyle.css";
-import checkIcon from "../assets/icons/check.png";
-
-import { setupCounter } from "../hooks";
-import { getList } from "./list";
-import { getFetchList } from "../hooks/fetch";
-
-document.querySelector("#app").innerHTML = `
-      <div class="mode-wrapper">
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./mainStyle.css" />
+    <title>css 테스트~!@</title>
+  </head>
+  <body>
+    <div class="mode-wrapper">
       <h1>FETCH MODE</h1>
       <button class="button-shadow">
         <svg
@@ -35,13 +35,37 @@ document.querySelector("#app").innerHTML = `
         </svg>
       </button>
     </div>
-
     <div class="todo-wrapper">
       <h1>Todo</h1>
-      <ul class="todo-wrapper-ul" id="todoList">
-
+      <ul>
+        <li>
+          <label for="todoTest">
+            <input type="checkbox" id="todoTest" />
+            <div class="checkbox button-shadow">
+              <div class="checkbox-checked inner-shadow">
+                <img src="../assets/icons/check.png" />
+              </div>
+            </div>
+            <p>todo 1</p>
+          </label>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="ionicon"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M368 368L144 144M368 144L144 368"
+              />
+            </svg>
+          </button>
+        </li>
       </ul>
-
       <div class="todo-wrapper-input button-shadow">
         <input type="text" class="inner-shadow" />
         <button>
@@ -63,17 +87,5 @@ document.querySelector("#app").innerHTML = `
         </button>
       </div>
     </div>
-    `;
-
-getList(await getFetchList());
-// <div>
-//   <h1>Hello Vite!</h1>
-//   <div class="card">
-//     <button id="counter" type="button"></button>
-//   </div>
-//   <p class="read-the-docs">
-//     Click on the Vite logo to learn more
-//   </p>
-// </div>
-
-// setupCounter(document.querySelector("#counter"));
+  </body>
+</html>
