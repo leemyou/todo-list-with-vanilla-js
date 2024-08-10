@@ -1,9 +1,12 @@
 import "./mainStyle.css";
 import checkIcon from "../assets/icons/check.png";
 
-import { setupCounter } from "../hooks";
-import { getList } from "./list";
-import { getFetchList } from "../hooks/fetch";
+import { getList, postList } from "./list";
+import { getFetchList, postFetchList } from "../hooks/fetch";
+
+const onClickAdd = () => {
+  console.log("run");
+};
 
 document.querySelector("#app").innerHTML = `
       <div class="mode-wrapper">
@@ -43,8 +46,8 @@ document.querySelector("#app").innerHTML = `
       </ul>
 
       <div class="todo-wrapper-input button-shadow">
-        <input type="text" class="inner-shadow" />
-        <button>
+        <input type="text" class="inner-shadow" id="inputNewTodo"/>
+        <button id="addList" type="button">
           <svg
             width="30"
             height="32"
@@ -66,6 +69,9 @@ document.querySelector("#app").innerHTML = `
     `;
 
 getList(await getFetchList());
+
+postList(document.getElementById("addList"));
+
 // <div>
 //   <h1>Hello Vite!</h1>
 //   <div class="card">

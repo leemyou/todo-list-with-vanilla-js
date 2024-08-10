@@ -1,5 +1,6 @@
 import "./mainStyle.css";
 import checkIcon from "../assets/icons/check.png";
+import { postFetchList } from "../hooks/fetch";
 
 export const getList = (list) => {
   console.log(list);
@@ -42,4 +43,13 @@ export const getList = (list) => {
 
     listWrapper.appendChild(newList);
   });
+};
+
+export const postList = (element) => {
+  const contents = document.getElementById("inputNewTodo");
+
+  element.addEventListener(
+    "click",
+    async () => await postFetchList(contents.value)
+  );
 };
