@@ -46,7 +46,6 @@ export const postFetchList = async (todoContents) => {
     };
     const updatedData = [...originData, newData];
     sessionStorage.setItem("todos", JSON.stringify(updatedData)); // 업데이트된 데이터를 세션에 저장
-    console.log(updatedData);
     // return updatedData;
     return newData;
   } catch (error) {
