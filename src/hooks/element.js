@@ -1,4 +1,5 @@
 import checkIcon from "../assets/icons/check.png";
+import { putList } from "../pages/list";
 import "../pages/mainStyle.css";
 
 export const createElement = (data) => {
@@ -9,7 +10,7 @@ export const createElement = (data) => {
           
           <div class="checkbox button-shadow ${
             data.completed ? "checkbox-checked" : "checkbox-non-checked"
-          }">
+          }" >
             <div class="checked-wrapper inner-shadow">
               <img src=${checkIcon} />
             </div>
@@ -35,6 +36,11 @@ export const createElement = (data) => {
         </button>
     `;
 
+  const checkbox = newList.querySelector(`#todo-${data.id}`);
+  putList(checkbox);
+  // checkbox.addEventListener("click", () =>
+  //   putList(Number(checkbox.id.split("-")[1]))
+  // );
+
   return newList;
-  // listWrapper.appendChild(newList);
 };

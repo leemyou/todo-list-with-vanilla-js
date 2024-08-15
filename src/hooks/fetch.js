@@ -53,3 +53,41 @@ export const postFetchList = async (todoContents) => {
     return [];
   }
 };
+
+export const putFetchList = async (id) => {
+  try {
+    console.log("emyo.id :", id);
+    const originData = JSON.parse(sessionStorage.getItem("todos")) || [];
+
+    console.log(originData);
+
+    const now = new Date();
+    const savedData = originData.filter((item) => item.id === id)[0] || {}; // 문자열로 저장된 데이터를 다시 JSON으로 파싱
+    const res = await fetch(basicUrl + `/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...savedData,
+        completed: !savedData.completed,
+        updatedAt: now,
+      }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP POST error! status: ${res.status}`);
+    }
+
+    const newData = await res.json();
+    const updatedData = [...originData, newData];
+    sessionStorage.setItem("todos", JSON.stringify(updatedData)); // 업데이트된 데이터를 세션에 저장
+    // return updatedData;
+    return newData;
+
+    return;
+  } catch (error) {
+    console.error("Error:", error);
+    return {};
+  }
+};

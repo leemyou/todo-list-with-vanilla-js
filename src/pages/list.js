@@ -1,4 +1,4 @@
-import { postFetchList } from "../hooks/fetch";
+import { postFetchList, putFetchList } from "../hooks/fetch";
 import { createElement } from "../hooks/element";
 
 export const getList = (list) => {
@@ -23,6 +23,23 @@ export const postList = (element) => {
       const newElement = createElement(newData);
 
       listWrapper.appendChild(newElement);
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+};
+
+export const putList = (element) => {
+  element.addEventListener("click", async (item) => {
+    const elementId = Number(item.target?.id.split("-")[1]);
+    console.log("emyo.elementId :", elementId);
+    const updatedData = await putFetchList(elementId);
+
+    const orginItem = document.getElementById(`todo-${elementId}`);
+    orginItem.innerHTML = createElement(updatedData);
+    try {
+    } catch (error) {
+      console.error("Error:", error);
+    }
   });
 };
