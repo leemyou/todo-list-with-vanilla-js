@@ -1,0 +1,6 @@
+{
+  "todos": [
+    { "id": 1, "title": "아침먹기", "is_completed": false },
+    { "id": 2, "title": "eat breakfast", "is_completed": true }
+  ]
+}
