@@ -31,7 +31,7 @@ export const postList = (element) => {
 
 export const putList = (element) => {
   element.addEventListener("click", async (item) => {
-    const elementId = Number(item.target?.id.split("-")[1]);
+    const elementId = item.target?.id.split("-")[1];
     console.log("emyo.elementId :", elementId);
     const updatedData = await putFetchList(elementId);
 
