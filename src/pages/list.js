@@ -1,4 +1,4 @@
-import { postFetchList, putFetchList } from "../hooks/fetch";
+import { deleteFetchList, postFetchList, putFetchList } from "../hooks/fetch";
 import { createElement } from "../hooks/element";
 
 export const getList = (list) => {
@@ -32,12 +32,34 @@ export const postList = (element) => {
 export const putList = (element) => {
   element.addEventListener("click", async (item) => {
     const elementId = item.target?.id.split("-")[1];
-    console.log("emyo.elementId :", elementId);
     const updatedData = await putFetchList(elementId);
 
     const orginItem = document.getElementById(`todo-${elementId}`);
     orginItem.innerHTML = createElement(updatedData);
     try {
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+};
+
+export const deleteList = (element) => {
+  element.addEventListener("click", async () => {
+    try {
+      const elementId = element.id.split("-")[1];
+      console.log("emyo.delete.element", elementId);
+
+      const newData = await deleteFetchList(elementId);
+      console.log("newDagta :", newData);
+
+      const listWrapper = document.querySelector("#todoList");
+
+      listWrapper.innerHTML = "";
+      return newData.map((item) => {
+        const newElement = createElement(item);
+
+        listWrapper.appendChild(newElement);
+      });
     } catch (error) {
       console.error("Error:", error);
     }

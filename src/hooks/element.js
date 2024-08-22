@@ -1,5 +1,5 @@
 import checkIcon from "../assets/icons/check.png";
-import { putList } from "../pages/list";
+import { deleteList, putList } from "../pages/list";
 import "../pages/mainStyle.css";
 
 export const createElement = (data) => {
@@ -18,7 +18,7 @@ export const createElement = (data) => {
           <p>${data.title}</p>
         </label>
         
-        <button>
+        <button id="todo-${data.id}-delete">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="ionicon"
@@ -38,9 +38,8 @@ export const createElement = (data) => {
 
   const checkbox = newList.querySelector(`#todo-${data.id}`);
   putList(checkbox);
-  // checkbox.addEventListener("click", () =>
-  //   putList(Number(checkbox.id.split("-")[1]))
-  // );
+
+  deleteList(newList.querySelector(`#todo-${data.id}-delete`));
 
   return newList;
 };

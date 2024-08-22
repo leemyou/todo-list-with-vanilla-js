@@ -61,7 +61,6 @@ export const postFetchList = async (todoContents) => {
 
 export const putFetchList = async (id) => {
   try {
-    console.log("emyo.id :", id);
     const originData = (await serchFetchList(id))[0] || {};
 
     const res = await fetch(basicUrl + `/${id}`, {
@@ -83,6 +82,27 @@ export const putFetchList = async (id) => {
     return newData;
   } catch (error) {
     console.error("Error:", error);
-    return {};
+    return [];
+  }
+};
+
+export const deleteFetchList = async (id) => {
+  try {
+    const res = await fetch(basicUrl + `/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP POST error! status: ${res.status}`);
+    }
+
+    const newData = await getFetchList();
+    return newData;
+  } catch (error) {
+    console.error("Error:", error);
+    return [];
   }
 };
