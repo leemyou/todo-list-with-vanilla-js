@@ -4,10 +4,6 @@ import checkIcon from "../assets/icons/check.png";
 import { getList, postList } from "./list";
 import { getFetchList, postFetchList } from "../hooks/fetch";
 
-const onClickAdd = () => {
-  console.log("run");
-};
-
 document.querySelector("#app").innerHTML = `
       <div class="mode-wrapper">
 

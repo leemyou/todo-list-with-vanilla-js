@@ -33,9 +33,11 @@ const serchFetchList = async (id) => {
 };
 
 export const postFetchList = async (todoContents) => {
-  console.log(todoContents);
   try {
-    const now = new Date();
+    if (todoContents.trim() === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
     const res = await fetch(basicUrl, {
       method: "POST",
       headers: {
