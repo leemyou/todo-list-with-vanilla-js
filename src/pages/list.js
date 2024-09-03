@@ -31,12 +31,14 @@ export const postList = (element) => {
 
 export const putList = (element) => {
   element.addEventListener("click", async (item) => {
-    const elementId = item.target?.id.split("-")[1];
-    const updatedData = await putFetchList(elementId);
-
-    const orginItem = document.getElementById(`todo-${elementId}`);
-    orginItem.innerHTML = createElement(updatedData);
     try {
+      const elementId = item.target?.id.split("-")[1];
+      const updatedData = await putFetchList(elementId);
+
+      const orginItem = document.getElementById(`todo-${elementId}`).parentNode
+        .parentNode;
+      const newElement = createElement(updatedData);
+      orginItem.replaceWith(newElement);
     } catch (error) {
       console.error("Error:", error);
     }
