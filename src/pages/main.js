@@ -64,6 +64,8 @@ document.querySelector("#app").innerHTML = `
     </div>
     `;
 
+document.getElementById("inputNewTodo").focus();
+
 getList(await getFetchList());
 
 postList(document.getElementById("addList"));

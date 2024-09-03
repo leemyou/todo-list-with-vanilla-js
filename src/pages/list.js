@@ -19,10 +19,13 @@ export const postList = (element) => {
     try {
       const newData = await postFetchList(contents.value);
       const listWrapper = document.querySelector("#todoList");
+      const textInputElement = document.querySelector("#inputNewTodo");
 
       const newElement = createElement(newData);
 
       listWrapper.appendChild(newElement);
+      textInputElement.value = ""; // 내용 초기화
+      textInputElement.focus(); // 포커싱
     } catch (error) {
       console.error("Error:", error);
     }
