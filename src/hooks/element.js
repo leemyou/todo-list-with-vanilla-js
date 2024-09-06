@@ -4,17 +4,20 @@ import "../pages/mainStyle.css";
 
 export const createElement = (data) => {
   const newList = document.createElement("li");
+  newList.className = data.completed
+    ? "checkbox-checked"
+    : "checkbox-non-checked";
+
   newList.innerHTML = `
         <label for="todo-${data.id}">
           <input type="checkbox" id="todo-${data.id}" />
           
-          <div class="checkbox button-shadow ${
-            data.completed ? "checkbox-checked" : "checkbox-non-checked"
-          }" >
+          <div class="checkbox button-shadow">
             <div class="checked-wrapper inner-shadow">
               <img src=${checkIcon} />
             </div>
           </div>
+
           <p>${data.title}</p>
         </label>
         
