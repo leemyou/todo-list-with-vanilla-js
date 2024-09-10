@@ -1,6 +1,6 @@
 import "./mainStyle.css";
 
-import { getList, postList } from "./list";
+import { getList, postList } from "../hooks/list";
 import { getFetchList } from "../hooks/fetch";
 import { modalClose, modalOpen } from "../hooks/modal";
 

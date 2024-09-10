@@ -1,5 +1,5 @@
-import { deleteFetchList, postFetchList, putFetchList } from "../hooks/fetch";
-import { createElement } from "../hooks/element";
+import { deleteFetchList, postFetchList, putFetchList } from "./fetch";
+import { createElement } from "./element";
 
 const getList = (list) => {
   const listWrapper = document.querySelector("#todoList");

@@ -1,5 +1,5 @@
 import checkIcon from "../assets/icons/check.png";
-import { deleteList, putList } from "../pages/list";
+import { deleteList, putList } from "./list";
 import "../pages/mainStyle.css";
 
 export const createElement = (data) => {
