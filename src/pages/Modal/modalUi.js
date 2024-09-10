@@ -1,9 +1,8 @@
-import { getCurrentModeData, modalClose } from "../../hooks/modal";
+import { modalClose } from "../../hooks/modal";
+import { getCurrentModeData } from "../../hooks/mode";
 import "./modalStyle.css";
 
 export const createModal = async () => {
-  console.log("run");
-
   const currentMode = await getCurrentModeData();
 
   const newModal = document.createElement("div");
