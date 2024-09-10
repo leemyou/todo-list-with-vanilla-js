@@ -2,7 +2,7 @@ import "./mainStyle.css";
 
 import { getList, postList } from "./list";
 import { getFetchList } from "../hooks/fetch";
-import { modalOpen } from "../hooks/modal";
+import { modalClose, modalOpen } from "../hooks/modal";
 
 // 초기 리스트 불러오는 함수
 getList(await getFetchList());
