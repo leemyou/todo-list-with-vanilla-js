@@ -1,6 +1,6 @@
 const basicUrl = "http://localhost:3000/todos";
 
-export const getFetchList = async () => {
+const getFetchList = async () => {
   try {
     const res = await fetch(basicUrl);
     if (!res.ok) {
@@ -8,7 +8,6 @@ export const getFetchList = async () => {
     }
 
     const data = await res.json();
-    // sessionStorage.setItem("todos", JSON.stringify(data)); // JSON 문자열로 저장해야한다!!
     return data;
   } catch (error) {
     console.error("Error:", error);
@@ -24,7 +23,6 @@ const serchFetchList = async (id) => {
     }
 
     const data = await res.json();
-    // sessionStorage.setItem("todos", JSON.stringify(data)); // JSON 문자열로 저장해야한다!!
     return data;
   } catch (error) {
     console.error("Error:", error);
@@ -32,7 +30,7 @@ const serchFetchList = async (id) => {
   }
 };
 
-export const postFetchList = async (todoContents) => {
+const postFetchList = async (todoContents) => {
   if (todoContents.trim() === "") {
     alert("내용을 입력해주세요.");
     return;
@@ -61,7 +59,7 @@ export const postFetchList = async (todoContents) => {
   }
 };
 
-export const putFetchList = async (id) => {
+const putFetchList = async (id) => {
   try {
     const originData = (await serchFetchList(id))[0] || {};
 
@@ -88,7 +86,7 @@ export const putFetchList = async (id) => {
   }
 };
 
-export const deleteFetchList = async (id) => {
+const deleteFetchList = async (id) => {
   try {
     const res = await fetch(basicUrl + `/${id}`, {
       method: "DELETE",
@@ -108,3 +106,5 @@ export const deleteFetchList = async (id) => {
     return [];
   }
 };
+
+export { getFetchList, postFetchList, putFetchList, deleteFetchList };

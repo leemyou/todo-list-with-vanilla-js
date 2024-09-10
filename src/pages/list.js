@@ -1,7 +1,7 @@
 import { deleteFetchList, postFetchList, putFetchList } from "../hooks/fetch";
 import { createElement } from "../hooks/element";
 
-export const getList = (list) => {
+const getList = (list) => {
   const listWrapper = document.querySelector("#todoList");
 
   return list.map((item) => {
@@ -12,7 +12,7 @@ export const getList = (list) => {
   });
 };
 
-export const postList = (element) => {
+const postList = (element) => {
   const contents = document.getElementById("inputNewTodo");
 
   element.addEventListener("click", async () => {
@@ -32,7 +32,7 @@ export const postList = (element) => {
   });
 };
 
-export const putList = (element) => {
+const putList = (element) => {
   element.addEventListener("click", async (item) => {
     try {
       const elementId = item.target?.id.split("-")[1];
@@ -48,7 +48,7 @@ export const putList = (element) => {
   });
 };
 
-export const deleteList = (element) => {
+const deleteList = (element) => {
   element.addEventListener("click", async () => {
     try {
       const elementId = element.id.split("-")[1];
@@ -70,3 +70,5 @@ export const deleteList = (element) => {
     }
   });
 };
+
+export { getList, postList, putList, deleteList };
