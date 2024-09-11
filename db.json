@@ -1,18 +1,20 @@
 {
   "todos": [],
-  "currentMode": "FETCH",
-  "modeInfo": [
-    {
-      "mode": "FETCH",
-      "info": "javaScrip에서 통신 요청을 보내고 받을 수 있도록 하는 메서드이다.\n",
-      "code": "예시코드가 들어갈 곳입니다.",
-      "id": "c049"
-    },
-    {
-      "mode": "AXIOS",
-      "info": "내용 설명이 들어갈 곳입니다.\n",
-      "code": "예시 코드가 들어갈 곳입니다.",
-      "id": "8811"
-    }
-  ]
+  "currentMode": {
+    "modeInfo": [
+      {
+        "mode": "FETCH",
+        "info": "javaScrip에서 통신 요청을 보내고 받을 수 있도록 하는 메서드이다.\n",
+        "code": "예시코드가 들어갈 곳입니다.",
+        "id": "c049"
+      },
+      {
+        "mode": "AXIOS",
+        "info": "내용 설명이 들어갈 곳입니다.\n",
+        "code": "예시 코드가 들어갈 곳입니다.",
+        "id": "8811"
+      }
+    ],
+    "isFetchMode": false
+  }
 }
