@@ -1,5 +1,4 @@
-import { modalClose } from "../../hooks/modal";
-import { getCurrentModeData } from "../../hooks/mode";
+import { getCurrentModeData, modalClose } from "../../hooks";
 import "./modalStyle.css";
 
 export const createModal = async () => {

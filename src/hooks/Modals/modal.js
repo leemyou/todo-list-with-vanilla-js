@@ -1,9 +1,7 @@
-import { createModal } from "../pages/Modal/modalUi";
+import { createModal } from "../../pages/Modal/modalUi";
 
-const modalOpen = (element) => {
-  element.addEventListener("click", () => {
-    createModal();
-  });
+const modalOpen = () => {
+  createModal();
 };
 
 const modalClose = (element) => {

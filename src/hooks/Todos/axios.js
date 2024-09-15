@@ -1,7 +1,12 @@
+import axios from "axios";
+
 const basicUrl = "http://localhost:3000/todos";
 
 const getAxiosList = async () => {
   console.log("run axios Mode");
+  const { data } = await axios.get(basicUrl);
+
+  return data;
 };
 
 const serchAxiosList = async () => {
