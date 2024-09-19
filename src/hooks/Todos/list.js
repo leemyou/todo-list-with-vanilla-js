@@ -1,10 +1,11 @@
+import * as modeModule from "../Modes/index";
+import { createListElement } from "../../pages/element";
 import {
   deleteFetchList,
   getFetchList,
   postFetchList,
   putFetchList,
 } from "./fetch";
-import { createListElement } from "../../pages/element";
 import {
   deleteAxiosList,
   getAxiosList,
@@ -22,10 +23,7 @@ const getList = async (mode) => {
   listWrapper.innerHTML = "";
 
   return list.map(async (item) => {
-    const newElement = createListElement({
-      elementData: item,
-      isModeFetch: mode,
-    });
+    const newElement = createListElement(item);
 
     listWrapper.appendChild(newElement);
   });
@@ -44,21 +42,25 @@ const getList = async (mode) => {
 //   });
 // };
 
-const postList = async (isModeFetch) => {
+const postList = async () => {
   const contents = document.getElementById("inputNewTodo");
 
   // element.addEventListener("click", async () => {
   try {
-    const postFun = isModeFetch ? postFetchList : postAxiosList;
+    if (contents.value.trim() === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
+
+    const { isFetchMode } = await modeModule.getCurrentMode();
+    console.log("isFetchMode: " + isFetchMode);
+    const postFun = isFetchMode ? postFetchList : postAxiosList;
 
     const newData = await postFun(contents.value);
     const listWrapper = document.querySelector("#todoList");
     const textInputElement = document.querySelector("#inputNewTodo");
 
-    const newElement = createListElement({
-      elementData: newData,
-      isModeFetch: isModeFetch,
-    });
+    const newElement = createListElement(newData);
 
     listWrapper.appendChild(newElement);
     textInputElement.value = ""; // 내용 초기화
@@ -69,15 +71,14 @@ const postList = async (isModeFetch) => {
   // });
 };
 
-const putList = async ({ isFetchMode: mode, id: id }) => {
+const putList = async (id) => {
   // element.addEventListener("click", async (item) => {
   try {
-    const putFun = mode ? putFetchList : putAxiosList;
+    const { isFetchMode } = await modeModule.getCurrentMode();
+
+    const putFun = isFetchMode ? putFetchList : putAxiosList;
     const updatedData = await putFun(id);
-    const newElement = createListElement({
-      elementData: updatedData,
-      isFetchMode: mode,
-    });
+    const newElement = createListElement(updatedData);
 
     const orginItem = document.getElementById(`todo-${id}`).parentNode
       .parentNode;
@@ -89,12 +90,14 @@ const putList = async ({ isFetchMode: mode, id: id }) => {
   // });
 };
 
-const deleteList = async ({ isFetchMode: mode, id: id }) => {
+const deleteList = async (id) => {
   // element.addEventListener("click", async () => {
   try {
     // const elementId = element.id.split("-")[1];
     // const newData = await deleteFetchList(id);
-    const deleteFun = mode ? deleteFetchList : deleteAxiosList;
+    const { isFetchMode } = await modeModule.getCurrentMode();
+
+    const deleteFun = isFetchMode ? deleteFetchList : deleteAxiosList;
     await deleteFun(id);
 
     // const listWrapper = document.querySelector("#todoList");
@@ -105,7 +108,7 @@ const deleteList = async ({ isFetchMode: mode, id: id }) => {
 
     //   listWrapper.appendChild(newElement);
     // });
-    await getList(mode);
+    await getList(isFetchMode);
 
     return;
   } catch (error) {
@@ -114,11 +117,11 @@ const deleteList = async ({ isFetchMode: mode, id: id }) => {
   // });
 };
 
-// TODO: 추후 다른 곳으로 빼야함.
-const postListEvent = (isModeFetch) => {
-  document.getElementById("addList").addEventListener("click", async () => {
-    await postList(isModeFetch);
-  });
-};
+// // TODO: 추후 다른 곳으로 빼야함.
+// const postListEvent = (isModeFetch) => {
+//   document.getElementById("addList").addEventListener("click", async () => {
+//     await postList(isModeFetch);
+//   });
+// };
 
-export { getList, postList, putList, deleteList, postListEvent };
+export { getList, postList, putList, deleteList };

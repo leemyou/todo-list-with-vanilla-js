@@ -31,10 +31,7 @@ const serchFetchList = async (id) => {
 };
 
 const postFetchList = async (todoContents) => {
-  if (todoContents.trim() === "") {
-    alert("내용을 입력해주세요.");
-    return;
-  }
+  console.log("post fetch mode run");
   try {
     const res = await fetch(basicUrl, {
       method: "POST",
@@ -61,6 +58,8 @@ const postFetchList = async (todoContents) => {
 
 const putFetchList = async (id) => {
   try {
+    console.log("PUT fetch mode run");
+
     const originData = (await serchFetchList(id))[0] || {};
 
     const res = await fetch(basicUrl + `/${id}`, {
@@ -88,6 +87,8 @@ const putFetchList = async (id) => {
 
 const deleteFetchList = async (id) => {
   try {
+    console.log("DELETE fetch mode run");
+
     const res = await fetch(basicUrl + `/${id}`, {
       method: "DELETE",
       headers: {
@@ -98,9 +99,6 @@ const deleteFetchList = async (id) => {
     if (!res.ok) {
       throw new Error(`HTTP POST error! status: ${res.status}`);
     }
-
-    const newData = await getFetchList();
-    return newData;
   } catch (error) {
     console.error("Error:", error);
     return [];

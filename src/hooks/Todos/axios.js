@@ -24,10 +24,6 @@ const serchAxiosListId = async (id) => {
 
 const postAxiosList = async (todoContents) => {
   console.log("run axios Mode");
-  if (todoContents.trim() === "") {
-    alert("내용을 입력해주세요.");
-    return;
-  }
   try {
     const { data } = await axios.post(basicUrl, {
       title: todoContents,
@@ -58,9 +54,9 @@ const putAxiosList = async (id) => {
 const deleteAxiosList = async (id) => {
   console.log("run axios Mode");
   try {
-    const { data } = await axios.delete(`${basicUrl}/${id}`);
+    await axios.delete(`${basicUrl}/${id}`);
 
-    return data;
+    return;
   } catch (error) {
     throw new Error(`HTTP DELETE error!: ${error}`);
   }

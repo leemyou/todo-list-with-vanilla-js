@@ -1,8 +1,8 @@
 import checkIcon from "../assets/icons/check.png";
-import { deleteList, putList } from "../hooks";
+import { deleteList, putList } from "../hooks/Todos/list";
 import "../pages/mainStyle.css";
 
-export const createListElement = ({ elementData: item, isModeFetch: mode }) => {
+export const createListElement = (item) => {
   const newList = document.createElement("li");
   newList.className = item.completed
     ? "checkbox-checked"
@@ -39,17 +39,15 @@ export const createListElement = ({ elementData: item, isModeFetch: mode }) => {
         </button>
     `;
 
-  const eventData = { isFetchMode: mode, id: item.id };
-
   const checkboxElement = newList.querySelector(`#todo-${item.id}`);
   const deleteBtnElement = newList.querySelector(`#todo-${item.id}-delete`);
 
   checkboxElement.addEventListener("click", async () => {
-    await putList(eventData);
+    await putList(item.id);
   });
 
   deleteBtnElement.addEventListener("click", async () => {
-    await deleteList(eventData);
+    await deleteList(item.id);
   });
 
   // document.addEventListener("DOMContentLoaded", async () => {

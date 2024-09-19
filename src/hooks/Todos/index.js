@@ -1,4 +1,4 @@
-export * from "./axios";
-export * from "./fetch";
-export * from "./list";
-export * from "./todoModule";
+import { postList } from "./list";
+
+// 리스트 등록 함수
+document.getElementById("addList").addEventListener("click", postList);
