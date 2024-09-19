@@ -45,7 +45,6 @@ const getInitialMode = async () => {
 
     const isFetch = mode === "FETCH";
     await todoModules.getList(isFetch);
-    todoModules.postListEvent(isFetch);
     return;
   } catch (error) {
     console.error("GET INITIALMODE ERROR! :", error);
