@@ -12,11 +12,11 @@ const getAxiosList = async () => {
   }
 };
 
-const serchAxiosList = async (id) => {
+const serchAxiosListId = async (id) => {
   console.log("run axios Mode");
   try {
     const { data } = await axios.get(`${basicUrl}?id=${id}`);
-    return data;
+    return data[0] || {};
   } catch (error) {
     throw new Error(`HTTP GET error!: ${error}`);
   }
@@ -42,12 +42,13 @@ const postAxiosList = async (todoContents) => {
 const putAxiosList = async (id) => {
   console.log("run axios Mode");
   try {
-    const originData = await serchAxiosList(id);
+    const originData = await serchAxiosListId(id);
 
     const { data } = await axios.put(`${basicUrl}/${id}`, {
       ...originData,
       completed: !originData.completed,
     });
+
     return data;
   } catch (error) {
     throw new Error(`HTTP PUT error!: ${error}`);
@@ -57,9 +58,9 @@ const putAxiosList = async (id) => {
 const deleteAxiosList = async (id) => {
   console.log("run axios Mode");
   try {
-    await axios.delete(`${basicUrl}/${id}`);
+    const { data } = await axios.delete(`${basicUrl}/${id}`);
 
-    return await getAxiosList();
+    return data;
   } catch (error) {
     throw new Error(`HTTP DELETE error!: ${error}`);
   }
@@ -67,7 +68,7 @@ const deleteAxiosList = async (id) => {
 
 export {
   getAxiosList,
-  serchAxiosList,
+  serchAxiosListId,
   postAxiosList,
   putAxiosList,
   deleteAxiosList,
