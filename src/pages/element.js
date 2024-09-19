@@ -50,17 +50,5 @@ export const createListElement = (item) => {
     await deleteList(item.id);
   });
 
-  // document.addEventListener("DOMContentLoaded", async () => {
-  //   const checkboxElement = newList.querySelector(`#todo-${data.id}`);
-  //   const deleteBtnElement = newList.querySelector(`#todo-${data.id}-delete`);
-
-  //   if (checkboxElement) {
-  //     checkboxElement.addEventListener("click", await putList(eventData));
-  //   }
-  //   if (deleteBtnElement) {
-  //     deleteBtnElement.addEventListener("click", await deleteList(eventData));
-  //   }
-  // });
-
   return newList;
 };

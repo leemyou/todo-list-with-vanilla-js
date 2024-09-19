@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { getList } from "../Todos";
 import * as todoModules from "../Todos/list";
 
 const basicUrl = "http://localhost:3000/currentMode";
@@ -66,14 +65,7 @@ const changeCurrentMode = async () => {
       isFetchMode: !isFetchMode,
     };
 
-    // const { data } = await axios.put(basicUrl, putData);
     await axios.put(basicUrl, putData);
-
-    // // 바뀐 모드로 리스트 재요청
-    // await todoModules.getList(data.isFetchMode);
-
-    // const { mode } = await getCurrentModeData();
-    // modeText.innerText = `${mode} MODE`;
     await getInitialMode();
 
     return;

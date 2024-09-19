@@ -13,12 +13,10 @@ import {
   putAxiosList,
 } from "./axios";
 
-// test code
 const getList = async (mode) => {
   const getFun = mode ? getFetchList : getAxiosList;
   const list = await getFun();
 
-  // if (list.length > 0) {
   const listWrapper = document.querySelector("#todoList");
   listWrapper.innerHTML = "";
 
@@ -27,25 +25,11 @@ const getList = async (mode) => {
 
     listWrapper.appendChild(newElement);
   });
-  // } else {
-  //   return;
-  // }
 };
-
-// const getList = (list) => {
-//   const listWrapper = document.querySelector("#todoList");
-
-//   return list.map((item) => {
-//     const newElement = createListElement(item);
-
-//     listWrapper.appendChild(newElement);
-//   });
-// };
 
 const postList = async () => {
   const contents = document.getElementById("inputNewTodo");
 
-  // element.addEventListener("click", async () => {
   try {
     if (contents.value.trim() === "") {
       alert("내용을 입력해주세요.");
@@ -68,11 +52,9 @@ const postList = async () => {
   } catch (error) {
     console.error("Error:", error);
   }
-  // });
 };
 
 const putList = async (id) => {
-  // element.addEventListener("click", async (item) => {
   try {
     const { isFetchMode } = await modeModule.getCurrentMode();
 
@@ -87,41 +69,21 @@ const putList = async (id) => {
   } catch (error) {
     console.error("Error:", error);
   }
-  // });
 };
 
 const deleteList = async (id) => {
-  // element.addEventListener("click", async () => {
   try {
-    // const elementId = element.id.split("-")[1];
-    // const newData = await deleteFetchList(id);
     const { isFetchMode } = await modeModule.getCurrentMode();
 
     const deleteFun = isFetchMode ? deleteFetchList : deleteAxiosList;
     await deleteFun(id);
 
-    // const listWrapper = document.querySelector("#todoList");
-
-    // listWrapper.innerHTML = "";
-    // return newData.map(async (item) => {
-    //   const newElement = await createListElement(item);
-
-    //   listWrapper.appendChild(newElement);
-    // });
     await getList(isFetchMode);
 
     return;
   } catch (error) {
     console.error("Error:", error);
   }
-  // });
 };
-
-// // TODO: 추후 다른 곳으로 빼야함.
-// const postListEvent = (isModeFetch) => {
-//   document.getElementById("addList").addEventListener("click", async () => {
-//     await postList(isModeFetch);
-//   });
-// };
 
 export { getList, postList, putList, deleteList };
