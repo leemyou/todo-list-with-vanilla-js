@@ -41,20 +41,20 @@ $ vite dev start
 <br/>
 <br/>
 
-# 3. Technology Stack (기술 스택)
+# 3. Technology Stack
 
 ## 3.1 Language
 
 - HTML5
 - CSS3
 - JavaScript
-- NPM(10.8.3)
-- VITE(5.3.5)
 
 <br/>
 
 ## 3.2 Frotend
 
+- NPM(10.8.3)
+- VITE(5.3.5)
 - AXIOS(1.7.7)
 - JSON SERVER(1.0.0-beta.1)
 
@@ -72,7 +72,7 @@ $ vite dev start
 
 <br/>
 
-# 4. Project Structure (프로젝트 구조)
+# 4. Project Structure
 
 ```plaintext
 project/
