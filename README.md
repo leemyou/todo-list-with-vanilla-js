@@ -1,5 +1,5 @@
 <a href="" target="_blank">
-<img src="https://github.com/user-attachments/assets/daa622b9-7c69-4786-8db3-4996b7f140be" alt="배너" width="100%"/>
+<img src="https://github.com/leemyou/todo-list-with-vanilla-js/blob/main/src/assets/images/banner.png" alt="배너" width="100%"/>
 </a>
 
 <br/>
