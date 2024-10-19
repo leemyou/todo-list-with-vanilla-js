@@ -27,7 +27,7 @@ export const createModal = async () => {
             />
           </svg>
       </button>
-      <div class="modal-info=box">
+      <div class="modal-info-box">
         <p>${currentMode.info}</p>
       </div>
       <div class="modal-code-box">

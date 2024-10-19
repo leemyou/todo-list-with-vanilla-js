@@ -34,6 +34,12 @@
       padding: 4px;
     }
 
+    > .modal-info-box {
+      > p {
+        white-space: pre-wrap;
+      }
+    }
+
     > .modal-code-box {
       width: initial;
       background-color: #dcdfeb83;
@@ -45,6 +51,7 @@
         padding: 0;
         font-size: 0.89rem;
         color: #444444;
+        white-space: pre-wrap;
       }
     }
   }
