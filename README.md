@@ -19,6 +19,7 @@ $ vite dev start
 
 - 프로젝트 이름: TODO List With Vanilla Js(투두리스트입니다. 그런데 이제 바닐라 Js를 곁들인)
 - 프로젝트 설명: 바닐라 JS를 사용하여 FETCH와 AXIOS의 차이 및 각 장단점에 대해서 알아보기 위해서 만든 프로젝트입니다.
+- <a href='https://www.figma.com/design/mMU1Jth0Rxorvr643vOfwo/TODO?node-id=0-1&t=AcnOtn1sWZ3lsJae-1'>피그마 링크 보러가기</a>
 
 <br/>
 <br/>
@@ -40,9 +41,9 @@ $ vite dev start
 <br/>
 <br/>
 
-# 5. Technology Stack (기술 스택)
+# 3. Technology Stack (기술 스택)
 
-## 5.1 Language
+## 3.1 Language
 
 - HTML5
 - CSS3
@@ -52,20 +53,26 @@ $ vite dev start
 
 <br/>
 
-## 5.2 Frotend
+## 3.2 Frotend
 
 - AXIOS(1.7.7)
 - JSON SERVER(1.0.0-beta.1)
 
 <br/>
 
-## 5.4 Cooperation
+## 3.3 Design
+
+- figma
+
+<br/>
+
+## 3.4 Cooperation
 
 - Git
 
 <br/>
 
-# 6. Project Structure (프로젝트 구조)
+# 4. Project Structure (프로젝트 구조)
 
 ```plaintext
 project/
@@ -84,3 +91,14 @@ project/
 
 <br/>
 <br/>
+
+# 5. PreView
+
+- 홈 화면
+  <img src="https://github.com/leemyou/todo-list-with-vanilla-js/blob/main/src/assets/images/preview-1.png" alt="홈화면" width="100%"/>
+- 체크화면
+  <img src="https://github.com/leemyou/todo-list-with-vanilla-js/blob/main/src/assets/images/preview-2.png" alt="체크화면" width="100%"/>
+- fetch 모달
+  <img src="https://github.com/leemyou/todo-list-with-vanilla-js/blob/main/src/assets/images/preview-3.png" alt="fetch 모달" width="100%"/>
+- axios 모달
+  <img src="https://github.com/leemyou/todo-list-with-vanilla-js/blob/main/src/assets/images/preview-4.png" alt="axios 모달" width="100%"/>
