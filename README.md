@@ -17,7 +17,7 @@ $ vite dev start
 
 # 1. Project Overview
 
-- 프로젝트 이름: TODO List With Vanilla Js(투두리스트입니다. 그런데 이제 fetch와 axios를 곁들인)
+- 프로젝트 이름: 투두리스트입니다. 그런데 이제 fetch와 axios를 곁들인
 - 프로젝트 설명: 바닐라 JS를 사용하여 FETCH와 AXIOS의 차이 및 각 장단점에 대해서 알아보기 위해서 만든 프로젝트입니다.
 - <a href='https://www.figma.com/design/mMU1Jth0Rxorvr643vOfwo/TODO?node-id=0-1&t=AcnOtn1sWZ3lsJae-1'>피그마 링크 보러가기</a>
 
