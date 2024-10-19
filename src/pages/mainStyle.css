@@ -46,6 +46,15 @@ li {
   align-items: flex-end;
   gap: 8px;
 
+  > h1 {
+    cursor: pointer;
+    color: #0c1219;
+    transition: 0.2s;
+  }
+  > h1:hover {
+    color: #83dbd6;
+  }
+
   > button {
     width: 60px;
     border: none;
